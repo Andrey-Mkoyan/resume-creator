@@ -318,13 +318,9 @@ input[type="date"] {
     cursor: pointer;
 }
 
-.experience-container-1 {}
 
-.experience-container-2 {
-    /* display: none; */
-}
 
-.custom-select {
+.custom-select select {
     position: relative;
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
@@ -333,10 +329,6 @@ input[type="date"] {
     height: 48px;
     margin-top: 8px;
     margin-right: 56px;
-}
-
-.custom-select select {
-    display: none;
 }
 
 .select-selected {
@@ -349,53 +341,13 @@ input[type="date"] {
     border-radius: 4px;
 }
 
-.select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-}
-
-.select-selected.select-arrow-active:after {
-    top: 7px;
-}
-
-.select-items div,
-.select-selected {
-    padding: 8px 16px;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.select-items {
-    position: absolute;
-    filter: drop-shadow(0px 16px 28px rgba(0, 0, 0, 0.24));
-    border-radius: 4px;
-    background-color: #fff;
-    width: 371px;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-.select-hide {
-    display: none;
-}
-
-.select-items div:hover,
-.same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-}
 
 .quality-container {
     display: flex;
     align-items: center;
     margin-top: 31px;
 }
+
 .education_desc {
     margin-top: 34px;
     border-bottom: 1px solid #C1C1C1;
@@ -404,7 +356,140 @@ input[type="date"] {
     margin-bottom: 42px;
 }
 
+.personal-info {
+    display: flex;
+    margin-top: 48px;
+    width: 662px;
+    border-bottom: 1px solid #C8C8C8;
+    padding-bottom: 19px;
+}
 
+.fullname {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    color: #F93B1D;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 17px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 34px;
+}
+
+.contact-email,
+.contact-phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creator-title {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F93B1D;
+    margin-bottom: 15px;
+}
+
+.creator-info {
+    width: 432px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: lowercase;
+    color: #000000;
+}
+
+.creator-experience{
+    width: 662px;
+    border-bottom: 1px solid #C8C8C8;
+    padding-bottom: 32px;
+}
+
+.title {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F93B1D;
+    margin-top: 24px;
+    margin-bottom: 15px;  
+}
+
+.experience-in {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1A1A;
+    margin-bottom: 7px;
+}
+
+.experience-in_date {
+    display: flex;
+    gap: 5px;
+    font-family: 'Helvetica Neue';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #919191;
+    margin-bottom: 16px;
+}
+
+.about-experiance {
+    width: 662px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+.education-place {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1A1A1A;
+    margin-bottom: 7px;
+}
+.graduation-of-education {
+    font-family: 'Helvetica Neue';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #919191;
+    margin-bottom: 16px;
+}
+.about-education {
+    width: 662px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: lowercase;
+    color: #000000;
+}
 @keyframes moveRight {
     0% {
         transform: translateX(-27rem) scale(0.9);

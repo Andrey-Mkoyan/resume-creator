@@ -5,6 +5,76 @@ const formBtnNext2 = document.querySelector("#btn-2-next")
 const formBtn3 = document.querySelector("#btn-3")
 let more=document.querySelector("#more-btn")
 let educationBtn=document.querySelector("#education-btn")
+const fname = document.getElementById("fname")
+const lname = document.getElementById("lname")
+const email = document.getElementById("email")
+const phone = document.getElementById("phone")
+const about = document.getElementById("about")
+let position = null
+let employer = null
+let start = null
+let end = null
+let desc = null
+
+const firstName = document.querySelector("#firstname")
+const lastName = document.querySelector("#lastname")
+const mail = document.querySelector("#mail")
+const telephone = document.querySelector("#telephone")
+const creatorInfo = document.querySelector("#creatorInfo")
+const knowledge = document.querySelector("#knowledge")
+const company = document.querySelector("#company")
+const startDate = document.querySelector("#startDate")
+const endDate = document.querySelector("#endDate")
+const experianceDesc = document.querySelector("#experianceDesc")
+
+
+
+let lastNameInner=lastName.innerHTML
+let firstNameInner = firstName.innerHTML
+let mailInner = mail.innerHTML
+let telephoneInner = telephone.innerHTML
+let creatorInfoInner = creatorInfo.innerHTML
+let knowledgeInner = knowledge.innerHTML
+let companyInner = company.innerHTML
+let startDateInner = startDate.innerHTML
+let endDateInner = endDate.innerHTML
+let experianceDescInner = experianceDesc.innerHTML
+window.addEventListener('DOMContentLoaded',()=>{
+    fname.addEventListener('change',(e)=>{
+        firstName.innerHTML=`${e.target.value}` +firstNameInner
+    })
+    lname.addEventListener('change', (e)=> {
+        lastName.innerHTML=`${e.target.value}`+lastNameInner
+    })
+    email.addEventListener('change', (e)=> {
+        mail.innerHTML = `${e.target.value}` +mailInner
+    })
+    phone.addEventListener('change', (e)=> {
+        telephone.innerHTML = `${e.target.value}` +telephoneInner
+    })
+    about.addEventListener('change', (e)=> {
+        creatorInfo.innerHTML = `${e.target.value}` +creatorInfoInner
+    })
+    position.addEventListener('change', (e)=> {
+        knowledge.innerHTML = `${e.target.value}` +knowledgeInner
+    })
+    employer.addEventListener('change', (e)=> {
+        company.innerHTML = `${e.target.value}` +companyInner
+    })
+    start.addEventListener('change', (e)=> {
+        startDate.innerHTML = `${e.target.value}` +startDateInner
+    })
+    end.addEventListener('change', (e)=> {
+        endDate.innerHTML = `${e.target.value}` +endDateInner
+    })
+    desc.addEventListener('change', (e)=> {
+        experianceDesc.innerHTML = `${e.target.value}` +experianceDescInner
+    })
+   
+    
+})
+
+
 const maketemplate=(index)=>{
     return ` 
     <div class="experience-container-${index}" id="experience-container-${index}">
@@ -22,8 +92,8 @@ const maketemplate=(index)=>{
                 <input type="date" name="start" id="start">
             </div>
             <div class="graduate-date">
-                <label class="label" for="start">დამთავრების რიცხვი</label> <br>
-                <input type="date" name="start" id="start">
+                <label class="label" for="end">დამთავრების რიცხვი</label> <br>
+                <input type="date" name="end" id="end">
             </div>
         </div>
         <div class="desc-container">
@@ -33,22 +103,19 @@ const maketemplate=(index)=>{
     </div>`
 }
 
-const maketemplate2 = (index)=> {
+const maketemplate2 = (index,string)=> {
     return `
         <div class="education_container-${index}" id="education_container-${index}">
             <div class="education">
-                <label class="label" for="position">სასწავლებელი</label> <br>
-                <input type="text" placeholder="სასწავლებელი" style="width: 798px;">
+                <label class="label" for="educationPlace">სასწავლებელი</label> <br>
+                <input type="text" id="educationPlace" placeholder="სასწავლებელი" style="width: 798px;">
             </div>
             <div class="quality-container">
                 <div class="quality-left">
                     <label class="label" for="quality">ხარისხი</label> <br>
                     <div class="custom-select">
                         <select>
-                            <option value="0">აირჩიეთ ხარისხი</option>
-                            <option value="1">საშუალო სკოლის დიპლომი</option>
-                            <option value="2">ზოგადსაგანმანათლებლო დიპლომი</option>
-                            <option value="3">ბაკალავრი</option>
+                        ${string}
                         </select>
                     </div>
                 </div>
@@ -67,6 +134,28 @@ const maketemplate2 = (index)=> {
         </div>
     `
 }
+
+async function getData() {
+    const items = document.getElementsByClassName('select-items');
+    const jsonData = await fetch('https://resume.redberryinternship.ge/api/degrees', {
+      method: 'GET',
+    });
+  return  jsonData.body.getReader().read().then(data=>{
+        var enc = new TextDecoder("utf-8");
+       const data2=JSON.parse(enc.decode(data.value))
+       let string=''
+            data2.forEach(element => {
+                    string+=`<option value="${element.id}">${element.title}</option>`
+            });
+        return   maketemplate2(1,string)
+    })
+    
+
+    // data.forEach(element => {
+    //     items.innerHTML = renderElement(element) + items.innerHTML
+    // });
+}
+
 let currentIndex=1
 const form1=document.getElementById("form1")
 // const form2=document.getElementById("form2")
@@ -82,11 +171,17 @@ const renderToDom=(i)=>{
     const template=maketemplate(i)
     form11.insertAdjacentHTML("beforebegin",template)     
     more=document.querySelector("#more-btn")
-   
+    position = document.getElementById("position")
+    employer = document.getElementById("employer")
+    start = document.getElementById("start")
+    end = document.getElementById("end")
+    desc = document.getElementById("desc")
+    
 }
-const renderToDom2=(i)=> {
-    const template2=maketemplate2(i)
+const renderToDom2=async (i)=> {
+    const template2=await getData()
     form22.insertAdjacentHTML("beforebegin",template2)
+
 }
 more.addEventListener("click",()=>{
     currentIndex++;
@@ -154,91 +249,3 @@ const gotoNextForm = (prev, next, stepPrev, stepNext) => {
         nextForm.classList.remove("form-active-animate")
     }, 1000)
 }
-
-
-
-var x, i, j, l, ll, selElmnt, a, b, c;
-/* Look for any elements with the class "custom-select": */
-x = document.getElementsByClassName("custom-select");
-l = x.length;
-for (i = 0; i < l; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  ll = selElmnt.length;
-  /* For each element, create a new DIV that will act as the selected item: */
-  a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  /* For each element, create a new DIV that will contain the option list: */
-  b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (j = 1; j < ll; j++) {
-    /* For each option in the original select element,
-    create a new DIV that will act as an option item: */
-    c = document.createElement("DIV");
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    c.addEventListener("click", function(e) {
-        /* When an item is clicked, update the original select box,
-        and the selected item: */
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-    });
-    b.appendChild(c);
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-    /* When the select box is clicked, close any other select boxes,
-    and open/close the current select box: */
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-    this.classList.toggle("select-arrow-active");
-  });
-}
-
-function closeAllSelect(elmnt) {
-  /* A function that will close all select boxes in the document,
-  except the current select box: */
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
-    }
-  }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
-    }
-  }
-}
-
-/* If the user clicks anywhere outside the select box,
-then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
-
-// document.addEventListener("DOMContentLoaded",()=>{
-//     
- 
-// })
