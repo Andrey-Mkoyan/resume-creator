@@ -96,17 +96,20 @@ educationBtn.addEventListener("click", ()=> {
     currentIndex++;
     renderToDom2(currentIndex)
 })
+
 formBtn1.addEventListener("click", function (e) {
-    renderToDom(currentIndex)
+   
     
     gotoNextForm(formBtn1, formBtnNext2, 1, 2)
     e.preventDefault()
 })
 
 formBtnNext2.addEventListener("click", function (e) {
-    renderToDom2(currentIndex)
+    
+    
     gotoNextForm(formBtnNext2, formBtn3, 2, 3)
     e.preventDefault()
+    
 })
 
 formBtnPrev2.addEventListener("click", function (e) {
@@ -128,6 +131,9 @@ formBtn3.addEventListener("click", function (e) {
      `
     e.preventDefault()
 })
+
+renderToDom(currentIndex)
+renderToDom2(currentIndex)
 const gotoNextForm = (prev, next, stepPrev, stepNext) => {
 
     const prevForm = prev.parentElement
