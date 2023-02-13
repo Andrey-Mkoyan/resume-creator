@@ -58,7 +58,8 @@
                     </div>
                     <div class="about-user">
                         <label class="label" for="about">ჩემ შესახებ (არასავალდებულო)</label> <br>
-                        <textarea name="about" id="about" cols="30" rows="10" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+                        <textarea name="about" id="about" cols="30" rows="10"
+                            placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
                     </div>
                     <div class="email-container">
                         <label class="label" for="email">ელ.ფოსტა</label> <br>
@@ -66,50 +67,39 @@
                     </div>
                     <div class="phone-container">
                         <label class="label" for="phone">მობილურის ნომერი</label> <br>
-                        <input type="number" name="phone" id="phone" placeholder="+995 551 12 34 56">
+                        <input type="text" style="width: 798px;" name="phone" id="phone"
+                            placeholder="+995 551 12 34 56">
                     </div>
-                    
+
                     <button class="form__btn  btn-1" id="btn-1">ᲨᲔᲛᲓᲔᲒᲘ</button>
-                    
+
                 </form>
-                <form class="form position-form">
-                    <div class="position-container">
-                        <label class="label" for="position">თანამდებობა</label> <br>
-                        <input type="text" id="position" name="position" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
+                <form id="form1" class="form position-form">
+                    <div id="form11">
+
                     </div>
-                    <div class="employer-container">
-                        <label class="label" for="employer">დამსაქმებელი</label> <br>
-                        <input type="text" placeholder="დამსაქმებელი" id="employer" name="employer">
-                    </div>
-                    <div class="date-container">
-                        <div class="start-date">
-                            <label class="label" for="start">დაწყების რიცხვი</label> <br>
-                            <input type="date" name="start" id="start">
-                        </div>
-                        <div class="graduate-date">
-                            <label class="label" for="start">დამთავრების რიცხვი</label> <br>
-                            <input type="date" name="start" id="start">
-                        </div>
-                    </div>
-                    <div class="desc-container">
-                        <label for="desc">აღწერა</label> <br>
-                        <textarea name="desc" id="desc" cols="30" rows="10" placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
-                    </div>
+
                     <div class="more-container">
                         <button class="more-btn" id="more-btn">მეტი გამოცდილების დამატება</button>
                     </div>
-                    <button class="form__btn" id="btn-2-prev">ᲣᲙᲐᲜ</button>
+                    <button class="form__btn back__btn" id="btn-2-prev">ᲣᲙᲐᲜ</button>
                     <button class="form__btn" id="btn-2-next">ᲨᲔᲛᲓᲔᲒᲘ</button>
                 </form>
-                <form class="form">
-                    <button class="form__btn" id="btn-3">Submit</button>
+                <form class="form" id="form2">
+                    <div id="form22">
+                        
+                    </div>
+                    <div class="education-more">
+                        <button class="more-btn" id="education-btn">სხვა სასწავლებლის დამატება</button>
+                    </div>
+                    <button class="form__btn back__btn" id="btn-3-prev">ᲣᲙᲐᲜ</button>
+                    <button class="form__btn" id="btn-3">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</button>
                 </form>
                 <div class="form--message"></div>
             </main>
         </div>
         <div class="right"></div>
     </div>
-
 
     <script src="./js/script.js"></script>
 </body>
