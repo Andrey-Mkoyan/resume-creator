@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>RedBerry</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left">
+            <main>
+                <div class="stepper">
+                    <div class="step--1 step-active">
+                        <div class="text">
+                            ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ
+                        </div>
+                        <div class="value">
+                            1/3
+                        </div>
+                    </div>
+                    <div class="step--2">
+                        <div class="text">
+                            ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ
+                        </div>
+                        <div class="value">
+                            2/3
+                        </div>
+                    </div>
+                    <div class="step--3">
+                        <div class="text">
+                            ᲒᲐᲜᲐᲗᲚᲔᲑᲐ
+                        </div>
+                        <div class="value">
+                            3/3
+                        </div>
+                    </div>
+                    <div class="step--4">Finish</div>
+                </div>
+                <form class="form form-active">
+                    <div class="full-name_container">
+                        <div>
+                            <label class="label" for="fname">სახელი</label> <br>
+                            <input type="text" id="fname" name="fname" placeholder="სახელი" />
+                        </div>
+                        <div>
+                            <label class="label" for="lname">გვარი</label> <br>
+                            <input type="text" id="lname" name="lname" placeholder="გვარი" />
+                        </div>
+                    </div>
+                    <div class="image-container">
+                        <div class="image-desc">პირადი ფოტოს ატვირთვა</div>
+                        <label class="image-button" for="image">ატვირთვა</label>
+                        <input type="file" style="visibility:hidden;" id="image">
+                    </div>
+                    <div class="about-user">
+                        <label class="label" for="about">ჩემ შესახებ (არასავალდებულო)</label> <br>
+                        <textarea name="about" id="about" cols="30" rows="10" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+                    </div>
+                    <div class="email-container">
+                        <label class="label" for="email">ელ.ფოსტა</label> <br>
+                        <input type="email" placeholder="ელ.ფოსტა" name="email" id="email">
+                    </div>
+                    <div class="phone-container">
+                        <label class="label" for="phone">მობილურის ნომერი</label> <br>
+                        <input type="number" name="phone" id="phone" placeholder="+995 551 12 34 56">
+                    </div>
+                    
+                    <button class="form__btn  btn-1" id="btn-1">ᲨᲔᲛᲓᲔᲒᲘ</button>
+                    
+                </form>
+                <form class="form position-form">
+                    <div class="position-container">
+                        <label class="label" for="position">თანამდებობა</label> <br>
+                        <input type="text" id="position" name="position" placeholder="დეველოპერი, დიზაინერი, ა.შ.">
+                    </div>
+                    <div class="employer-container">
+                        <label class="label" for="employer">დამსაქმებელი</label> <br>
+                        <input type="text" placeholder="დამსაქმებელი" id="employer" name="employer">
+                    </div>
+                    <div class="date-container">
+                        <div class="start-date">
+                            <label class="label" for="start">დაწყების რიცხვი</label> <br>
+                            <input type="date" name="start" id="start">
+                        </div>
+                        <div class="graduate-date">
+                            <label class="label" for="start">დამთავრების რიცხვი</label> <br>
+                            <input type="date" name="start" id="start">
+                        </div>
+                    </div>
+                    <div class="desc-container">
+                        <label for="desc">აღწერა</label> <br>
+                        <textarea name="desc" id="desc" cols="30" rows="10" placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    </div>
+                    <div class="more-container">
+                        <button class="more-btn" id="more-btn">მეტი გამოცდილების დამატება</button>
+                    </div>
+                    <button class="form__btn" id="btn-2-prev">ᲣᲙᲐᲜ</button>
+                    <button class="form__btn" id="btn-2-next">ᲨᲔᲛᲓᲔᲒᲘ</button>
+                </form>
+                <form class="form">
+                    <button class="form__btn" id="btn-3">Submit</button>
+                </form>
+                <div class="form--message"></div>
+            </main>
+        </div>
+        <div class="right"></div>
+    </div>
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

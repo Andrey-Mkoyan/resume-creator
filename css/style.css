@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.home-page {
+    background: url('../assets/images/shutterstock.png') center center/cover no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 70px;
+}
+
+.horizontal-line {
+    width: 1780px;
+    border: 1px solid #1A1A1A;
+    position: absolute;
+    top: 89px;
+    left: 70px;
+}
+
+.btn>button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 464px;
+    height: 60px;
+    background-color: #1A1A1A;
+    border-radius: 8px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.image {
+    position: absolute;
+    top: 473px;
+    left: 1076px;
+}
+
+.btn {
+    position: absolute;
+    top: 513px;
+    left: 728px;
+    z-index: 2;
+}
